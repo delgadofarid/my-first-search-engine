@@ -1,0 +1,16 @@
+pandas==1.2.4
+beautifulsoup4==4.9.3
+mistletoe==0.7.2
+html2text==2020.1.16
+tqdm==4.61.0
+openpyxl==3.0.7
+elasticsearch==7.13.0
+torch==1.8.1
+tornado==6.1
+tqdm==4.61.0
+transformers==4.6.1
+widgetsnbextension==3.5.1
+joblib==1.0.1
+Flask==2.0.1
+poetry==1.1.6
+poetry-core==1.0.3
