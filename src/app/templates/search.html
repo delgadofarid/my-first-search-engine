@@ -5,12 +5,32 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-    <form action="#" method="get">
+<form action="#" method="get">
+    {% if results is defined %}
         <a href="/" title="Página Principal" id="logo">
             <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Misión MinTic" height="50">
         </a>
-        <input type="search" autocomplete="off" name="search_terms">
-        <input type="submit" value="Buscar"/>
-    </form>
+    {% else %}
+        <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Misión MinTic">
+    {% endif %}
+    <input type="search" autocomplete="off" name="search_terms">
+    <input type="submit" value="Buscar"/>
+</form>
+{% if results is defined %}
+    {% if results %}
+        <ul id="results">
+            {% for item in results %}
+                <li>
+                    <div>
+                        <a href="{{ item.bookURL }}" target="_blank">{{ item.bookTitle }}</a>
+                        {{ item.htmlSnippet|safe }}
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p class="not-results">Ops, no se encontraron resultados disponibles. Modifica tu consulta e inténtalo nuevamente.</p>
+    {% endif %}
+{% endif %}
 </body>
 </html>
